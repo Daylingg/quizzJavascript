@@ -9,7 +9,8 @@ import { useQuestionsStore } from './store/questions'
 import useMediaQuery from '@mui/material/useMediaQuery'
 
 function App() {
-  const questions = useQuestionsStore((state) => state.questions)
+  //const questions = useQuestionsStore((state) => state.questions)
+  const questionsApi = useQuestionsStore((state) => state.questionsApi)
   const { unanswer } = useQuestionsData()
   const theme = useTheme()
 
@@ -33,9 +34,12 @@ function App() {
           </Typography>
         </Stack>
 
-        {questions.length === 0 && <Start />}
+        {/* {questions.length === 0 && <Start />}
         {questions.length > 0 && unanswer > 0 && <Game />}
-        {questions.length > 0 && unanswer === 0 && <Results />}
+        {questions.length > 0 && unanswer === 0 && <Results />} */}
+        {questionsApi.length === 0 && <Start />}
+        {questionsApi.length > 0 && unanswer > 0 && <Game />}
+        {questionsApi.length > 0 && unanswer === 0 && <Results />}
       </Container>
     </main>
   )
